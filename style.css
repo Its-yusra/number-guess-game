@@ -1,0 +1,35 @@
+body {
+    background: linear-gradient(135deg, #1e1e2f, #121212);
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+.container {
+    margin-top: 60px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+button {
+    padding: 10px 20px;
+    background: #ff4b5c;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #ff1e3c;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

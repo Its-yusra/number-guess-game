@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+<h1>🎮 Number Guess Game</h1>
+
+{% if ask_name %}
+<form method="POST" action="/setname">
+    <input type="text" name="username" placeholder="Enter your name" required>
+    <button>Start</button>
+</form>
+
+{% elif not game_started %}
+<p>Welcome {{ username }}</p>
+
+<a href="/start/easy"><button>Easy</button></a>
+<a href="/start/medium"><button>Medium</button></a>
+<a href="/start/hard"><button>Hard</button></a>
+
+<p>{{ message }}</p>
+
+<h3>🏆 Leaderboard</h3>
+{% for s in scores %}
+<p>{{ s[0] }} - {{ s[1] }} attempts</p>
+{% endfor %}
+
+{% else %}
+<p>Attempts: {{ attempts }}</p>
+
+<form method="POST">
+    <input name="guess" placeholder="Enter guess">
+    <button>Guess</button>
+</form>
+
+<p>{{ message }}</p>
+<p>{{ hint }}</p>
+
+<a href="/reset"><button>Restart</button></a>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
